@@ -44,7 +44,7 @@ public class VerifyUrlchanged {
 
         }
 
-
+    Thread.sleep(3000);
         //close
         driver.quit();
 

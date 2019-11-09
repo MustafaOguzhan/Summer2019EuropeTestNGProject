@@ -60,7 +60,7 @@ public class VerifyConfirmationMessage {
 
              System.out.println(actualMessage);
 
-             if(expectedEmail.equals(actualEmail)){
+             if(expectedMessage.equals(actualMessage)){
                  System.out.println("PASS");
              }else {
                  System.out.println("FAIL");
