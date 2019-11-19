@@ -11,7 +11,7 @@ public class TestNGAssertionsDemo {
         System.out.println("First Assertion");
         Assert.assertEquals(1, 1);
         System.out.println("Second Assertion");
-        Assert.assertEquals("title", "titlE");
+        Assert.assertEquals("title", "title");
         System.out.println("after second assertion");
     }
 
