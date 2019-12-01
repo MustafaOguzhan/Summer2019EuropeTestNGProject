@@ -54,7 +54,7 @@ public class iframes {
     public void multipleFrames(){
         driver.get("http://practice.cybertekschool.com/nested_frames");
         //switching to frame top
-        driver.switchTo().frame("frame-top");
+        driver.switchTo().frame("frame_top");
         //frame top has 3 childen frame , left middle and right
         //switching to middle frame
         driver.switchTo().frame("frame-middle");

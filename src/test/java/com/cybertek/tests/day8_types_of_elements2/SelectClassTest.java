@@ -25,6 +25,7 @@ public class SelectClassTest {
         //returns all available options from the dropdown list
         List<WebElement> options = stateList.getOptions();
 
+
         for (WebElement option : options) {
             System.out.println(option.getText());
         }

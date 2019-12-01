@@ -19,7 +19,7 @@ public class MultipleWindows {
     @AfterMethod
     public void tearDownMethod() throws InterruptedException {
         Thread.sleep(3000);
-        // driver.quit();
+        driver.quit();
 }
 
     @Test
@@ -41,7 +41,8 @@ public class MultipleWindows {
         System.out.println(windowHandles.size());
         //our problem is how can we get new window handle from set of handles.There is no index.
         //loop through all handles inside the Set of handles
-        for (String handle : windowHandles) {
+        for (String handle : windowHandles)
+        {
             //checking handle is not equal to current page
             if(!currentWindowHandle.equals(handle)){
                 //switching to new window
@@ -59,6 +60,7 @@ public class MultipleWindows {
         driver.get("http://practice.cybertekschool.com/windows");
         String targetWindowTitle = "New Window";
         driver.findElement(By.linkText("Click Here")).click();
+
         //check how many windows we have
         System.out.println(driver.getWindowHandles().size());
         Set<String> windowHandles= driver.getWindowHandles();
