@@ -32,7 +32,7 @@ public class RadioButtonTest {
 
 
         redRadioButton.click();
-        blueRadioButton.click();
+       // blueRadioButton.click();
         Assert.assertTrue(redRadioButton.isSelected(),"red button is selected : ");
         Assert.assertFalse(blueRadioButton.isSelected(),"Blue is not selected : ");
 
