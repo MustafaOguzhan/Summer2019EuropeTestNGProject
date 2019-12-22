@@ -1,6 +1,5 @@
 package com.cybertek.pages;
 
-
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.Driver;
 import org.openqa.selenium.By;
@@ -61,20 +60,20 @@ public abstract class BasePage {
 
     }
 
-    public String getUserName(){
+    public String getUserName() {
         waitUntilLoaderScreenDisappear();
         BrowserUtils.waitForVisibility(userName, 5);
         return userName.getText();
     }
 
 
-
-    public void logOut(){
+    public void logOut() {
         BrowserUtils.waitFor(2);
         BrowserUtils.clickWithJS(userName);
         BrowserUtils.clickWithJS(logOutLink);
     }
-    public void goToMyUser(){
+
+    public void goToMyUser() {
         waitUntilLoaderScreenDisappear();
         BrowserUtils.waitForClickablility(userName, 5).click();
         BrowserUtils.waitForClickablility(myUser, 5).click();
@@ -106,7 +105,7 @@ public abstract class BasePage {
             Driver.get().findElement(By.xpath(moduleLocator)).click();
         } catch (Exception e) {
 //            BrowserUtils.waitForStaleElement(Driver.get().findElement(By.xpath(moduleLocator)));
-            BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
+            BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)), 5);
         }
     }
 

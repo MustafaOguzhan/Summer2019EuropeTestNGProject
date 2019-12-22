@@ -1,7 +1,6 @@
 package com.cybertek.pages;
 
 
-
 import com.cybertek.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +18,7 @@ public class CreateCalendarEventsPage extends BasePage {
 
     @FindBy(css = "[id^='recurrence-repeats-view']")
     public WebElement repeatOptions;
+
     @FindBy(className = "select2-chosen")
     public WebElement selectedOwner;
 
@@ -50,6 +50,8 @@ public class CreateCalendarEventsPage extends BasePage {
 
     @FindBy(xpath = "(//input[@type='radio'])[5]")
     public WebElement by;
+
+
 
     public Select repeatOptionsList(){
         return new Select(repeatOptions);
