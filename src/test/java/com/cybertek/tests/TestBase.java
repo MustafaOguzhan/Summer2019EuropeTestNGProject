@@ -59,7 +59,7 @@ public class TestBase {
     @BeforeMethod
     public void setUpMethod(){
         driver = Driver.get();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         action = new Actions(driver);
         wait = new WebDriverWait(driver,10);
         driver.get(ConfigurationReader.get("url"));
@@ -67,6 +67,8 @@ public class TestBase {
 
     }
     //ITestResult class describes the result of a test in TestNg
+    //all the results info(failed,skipped pass) come from ITestResults class
+    //depends on the result i will do some action like screenshot etc.
     @AfterMethod
     public void tearDownMethod(ITestResult result) throws InterruptedException, IOException {
         //If test failed
@@ -74,11 +76,12 @@ public class TestBase {
             //record the name of the failed test case
             extentLogger.fail(result.getName());
 
-            //take the screenshot and return location of screenshot
+            //take the screenshot and return path of the screenshot
             String screenshotPath = BrowserUtils.getScreenshot(result.getName());
             extentLogger.addScreenCaptureFromPath(screenshotPath);
 
             //capture the exception
+            //it will give our failure reasons
             extentLogger.fail(result.getThrowable());
 
         }else if(result.getStatus()==ITestResult.SKIP){

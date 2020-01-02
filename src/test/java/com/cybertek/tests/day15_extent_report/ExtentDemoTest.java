@@ -12,7 +12,7 @@ public class ExtentDemoTest {
     ExtentReports report;
     //this class is used to create the HTML report file
     ExtentHtmlReporter htmlReporter;
-    //this w,ll define a test, enables adding logs,authors,test steps
+    //this will define a test, enables adding logs,authors,test steps,we r adding info
     ExtentTest extentLogger;
 
     @BeforeMethod
@@ -20,16 +20,19 @@ public class ExtentDemoTest {
         //initialize the class
         report = new ExtentReports();
 
-        //create report path
+        //create report path //where we gonna keep our report
         String projectPath = System.getProperty("user.dir");
         String path = projectPath+ "/test-output/report.html";
 
         //initialize the html reporter with the report path
+        //means that hey Html reporter this is the  location you gonna put our report
         htmlReporter= new ExtentHtmlReporter(path);
 
         //attach the html report to the report object
+        //means create the html report for us
         report.attachReporter(htmlReporter);
 
+        //ıt will set the report title on the web page
         htmlReporter.config().setReportName("Vytrack smoke test");
 
         //set environment information
@@ -58,6 +61,7 @@ public class ExtentDemoTest {
     @AfterMethod
     public void teardown(){
         //this is when the report is actually created
+        //at the end of the all tests cases,when you done with the test cases,b4 create another report
         report.flush();
 
     }
