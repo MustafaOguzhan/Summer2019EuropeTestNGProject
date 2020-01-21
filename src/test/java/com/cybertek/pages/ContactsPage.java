@@ -6,21 +6,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ContactsPage extends BasePage {
-    //no need create PageFactory class again because we inherited from BasePage
+    //we dont need to create constructor and use PageFactory class here,
+    //since we are extending from basepage
 
-    //this is not useful when something is dynamic in the locator  (like email)
+
+    //if you are trying to come up dynamic xpath you cannot use @Findby
     @FindBy(xpath = "//td[contains(text(),'mbrackstone9@example.com')][@data-column-label='Email']")
     public WebElement email;
 
-    //create a method that accepts email as a String,and returns webelement based on that email
-    //we can use this because email is changeable,it is dynamic
-    public WebElement getContactEmail (String email){
-        String emailXpath= "//td[contains(text(),'"+email+"')][@data-column-label='Email']";
+   //create a method that accepts email as a String, and returns webelement based on that email.
+
+    public WebElement getContactEmail(String email){
+        String emailXpath = "//td[contains(text(),'"+email+"')][@data-column-label='Email']";
         return Driver.get().findElement(By.xpath(emailXpath));
-
     }
-
-
 
 
 }

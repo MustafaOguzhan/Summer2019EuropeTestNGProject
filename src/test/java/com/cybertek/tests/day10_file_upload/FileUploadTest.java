@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class FileUploadTest {
     WebDriver driver;
-   /* @BeforeMethod
+    @BeforeMethod
     public void setUpMethod(){
         driver = WebDriverFactory.getDriver("chrome");
 
@@ -20,7 +20,7 @@ public class FileUploadTest {
     @AfterMethod
     public void tearDownMethod() throws InterruptedException {
         Thread.sleep(2000);
-       // driver.quit();
+        driver.quit();
 
     }
 
@@ -34,13 +34,13 @@ public class FileUploadTest {
     public void test1(){
         driver.get("http://practice.cybertekschool.com/upload");
         //file path unique for each computer
-        driver.findElement(By.name("file")).sendKeys("C:\\Users\\oguzhan_onal\\Desktop\\test.txt");
+        driver.findElement(By.name("file")).sendKeys("/Users/cybertekstudio/Desktop/file.txt");
         //clicking the upload button
         driver.findElement(By.id("file-submit")).click();
         //getting text of webelement
-       String actualFilename = driver.findElement(By.id("uploaded-files")).getText();
+        String actualFilename = driver.findElement(By.id("uploaded-files")).getText();
         //verify file name is displayed in the next page
-       Assert.assertEquals(actualFilename,"test.txt","Verify the file name");
+        Assert.assertEquals(actualFilename,"file.txt","Verify the file name");
 
 
     }
@@ -49,9 +49,9 @@ public class FileUploadTest {
     public void test2(){
         driver.get("http://practice.cybertekschool.com/upload");
 
+        //getting dynamic file path
         String projectPath = System.getProperty("user.dir");
         String relativePath = "src/test/resources/testfile.txt";
-
         String filePath = projectPath+"/"+relativePath;
 
         driver.findElement(By.name("file")).sendKeys(filePath);
@@ -64,5 +64,4 @@ public class FileUploadTest {
 
 
     }
-
 }

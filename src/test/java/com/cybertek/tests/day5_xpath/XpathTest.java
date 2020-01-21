@@ -10,11 +10,13 @@ public class XpathTest {
 
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
-        driver.get("https://practice.cybertekschool.com/multiple_buttons");
 
-       WebElement homeLink = driver.findElement(By.xpath("/html/body/nav/ul/li/a"));
-        homeLink.click();
+        driver.get("http://practice.cybertekschool.com/multiple_buttons");
 
+        WebElement button1 = driver.findElement(By.xpath(""));
+
+        button1.click();
     }
+
 
 }

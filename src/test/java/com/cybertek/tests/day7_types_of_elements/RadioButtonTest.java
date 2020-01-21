@@ -4,39 +4,50 @@ import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.json.JsonOutput;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class RadioButtonTest {
 
+
+
     @Test
     public void radioButton(){
 
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.get("https://practice.cybertekschool.com/radio_buttons");
+       WebDriver  driver = WebDriverFactory.getDriver("chrome");
+        //driver.manage().window().maximize();
+        driver.get("http://practice.cybertekschool.com/radio_buttons");
 
-        WebElement blueRadioButton =driver.findElement(By.id("blue"));
+        WebElement blueRadioButton = driver.findElement(By.id("blue"));
         WebElement redRadioButton = driver.findElement(By.id("red"));
 
-        System.out.println("Is blue selected: "+blueRadioButton.isSelected());
-        System.out.println("Is red selected: "+redRadioButton.isSelected());
+        //how to check radio button selected or not ?
 
-        //verify that blue button is selected
+        System.out.println("Is blue selected: "+ blueRadioButton.isSelected());
+        System.out.println("Is red selected: "+ redRadioButton.isSelected());
+        //verify that blue radio button selected
         Assert.assertTrue(blueRadioButton.isSelected(),"Verify that blue button is selected");
+        //verify that red radio button not selected
+        Assert.assertFalse(redRadioButton.isSelected(),"verify that red button not selected");
 
-        //verify that red button is selecteed
-        Assert.assertFalse(redRadioButton.isSelected(),"Verify that red button is selected");
-
-
-
-
+        //how to select radio button ?
+        System.out.println("Clicking red radio button");
         redRadioButton.click();
-       // blueRadioButton.click();
-        Assert.assertTrue(redRadioButton.isSelected(),"red button is selected : ");
-        Assert.assertFalse(blueRadioButton.isSelected(),"Blue is not selected : ");
 
+        System.out.println("Is blue selected: "+ blueRadioButton.isSelected());
+        System.out.println("Is red selected: "+ redRadioButton.isSelected());
+        //verify blue is not selected
+        Assert.assertFalse(blueRadioButton.isSelected(),"verify that blue is not selected");
+        //verify red is selected
+        Assert.assertTrue(redRadioButton.isSelected(),"verify that red is selected");
 
-
+        driver.quit();
     }
+
+ 
+
+
+
 }

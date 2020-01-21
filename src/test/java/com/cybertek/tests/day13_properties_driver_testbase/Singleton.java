@@ -1,4 +1,5 @@
 package com.cybertek.tests.day13_properties_driver_testbase;
+
 public class Singleton {
 
     //singleton class will have private constructor

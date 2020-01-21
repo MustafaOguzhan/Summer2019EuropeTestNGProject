@@ -21,32 +21,30 @@ public class PageSubtitleTest extends TestBase {
     ..
     */
 
-    @Test
+   @Test
     public void verifySubtitleTest(){
-        LoginPage loginPage = new LoginPage();
+       LoginPage loginPage = new LoginPage();
 
-        String username = ConfigurationReader.get("driver_username");
-        String password = ConfigurationReader.get("driver_password");
+       String username = ConfigurationReader.get("driver_username");
+       String password = ConfigurationReader.get("driver_password");
 
-        loginPage.login(username,password);
+       loginPage.login(username,password);
 
-        DashboardPage dashboardPage = new DashboardPage();
+       DashboardPage dashboardPage = new DashboardPage();
         //expected title
-        String expectedSubtitle = "Quick Launchpad";
-        //actual title from website
-        //.getPageSubtitile methodu BasePage te ve bunu herhangi bir sayfanın SubTitile
-        //ını text olarak almak istediğimizde de kullanabiliriz.
-        String actualSubtitle = dashboardPage.getPageSubTitle();
-        //verify titles are matching
-        Assert.assertEquals(actualSubtitle,expectedSubtitle,"Verify subtitles");
+       String expectedSubtitle = "Quick Launchpad";
+       //actual title from website
+       String actualSubtitle = dashboardPage.getPageSubTitle();
+       //verify titles are matching
+       Assert.assertEquals(actualSubtitle,expectedSubtitle,"Verify subtitles");
 
-        dashboardPage.navigateToModule("Activities","Calendar Events");
+       dashboardPage.navigateToModule("Activities","Calendar Events");
 
-        CalendarEventsPage calendarEventsPage = new CalendarEventsPage();
+       CalendarEventsPage calendarEventsPage = new CalendarEventsPage();
 
-        Assert.assertEquals(calendarEventsPage.getPageSubTitle(),"Calendar Events","Verify subtitles");
+       Assert.assertEquals(calendarEventsPage.getPageSubTitle(),"Calendar Events","Verify subtitles");
 
 
 
-    }
+   }
 }

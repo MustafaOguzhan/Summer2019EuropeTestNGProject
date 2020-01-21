@@ -5,28 +5,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class NavigationDemo {
+
     public static void main(String[] args) throws InterruptedException {
 
-        //setting up to class
+        //setting up the browser
         WebDriverManager.chromedriver().setup();
 
-        //import class alt+enter or ctr+space
+        //import class CMD+ENTER or ALT+enter or CONTROL +SPACE
         //selenium object
         WebDriver driver = new ChromeDriver();
 
-        driver.get("https://www.amazon.com");
+        //navigate to website
+        driver.get("https://www.google.com");
 
+
+        //another way of opening website
         driver.navigate().to("https://www.facebook.com");
 
+        //goes back to previous webpage
         driver.navigate().back();
 
-        Thread.sleep(3000);
-
-
+        //goes forward after goes back
         driver.navigate().forward();
 
+        //refresh the page
+        driver.navigate().refresh();
 
     }
-
-
 }

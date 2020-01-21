@@ -1,6 +1,8 @@
 package com.cybertek.tests.day13_properties_driver_testbase;
 
+import com.cybertek.tests.TestBase;
 import com.cybertek.utilities.ConfigurationReader;
+import com.cybertek.utilities.Driver;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,26 +11,18 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class loginTest {
-    WebDriver driver;
-    @BeforeMethod
-    public void setUpMethod(){
-        driver = WebDriverFactory.getDriver("chrome");
+public class loginTest extends TestBase {
 
 
-    }
-
-    @AfterMethod
-    public void tearDownMethod() throws InterruptedException {
-        Thread.sleep(2000);
-        //  driver.quit();
-
-    }
     @Test
     public void test1(){
         driver.get(ConfigurationReader.get("url"));
         driver.findElement(By.id("prependedInput")).sendKeys("user1");
-        driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123" + Keys.ENTER);
+        driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123"+ Keys.ENTER);
 
     }
+
+
+
+
 }

@@ -1,49 +1,51 @@
 package com.cybertek.tests.day3_webelement_intro;
 
 import com.cybertek.utilities.WebDriverFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class VerifyURLnotchanged {
-    public static void main(String[] args) throws InterruptedException {
+    /**
+     * Verify URL not changed
+     * open chrome
+     * go to http://practice.cybertekschool.com/forgot_password Links to an external site.
+     * click on Retrieve password
+     * verify that url did not change
+     *
+     */
 
-/**
- * Verify URL not changed
- * open browser
- * go to http://practice.cybertekschool.com/forgot_passwordLinks to an external site.
- * click on Retrieve password
- * verify that url did not change
- */
+    public static void main(String[] args) {
 
         //open chrome
         WebDriver driver = WebDriverFactory.getDriver("chrome");
 
-        //navıgate to-go to http://practice.cybertekschool.com/forgot_password Links to an external site.
+        //go to http://practice.cybertekschool.com/forgot_password Links to an external site.
         driver.get("http://practice.cybertekschool.com/forgot_password");
 
-         //save url to String variable
+        //save url to string variable
         String expectedUrl = driver.getCurrentUrl();
 
         //click on Retrieve password
+        //WebElement --> class that represents elements on the webpage
+        //findElement --> method used to find element on a page
         WebElement retrievePasswordButton = driver.findElement(By.id("form_submit"));
-
+        //click()--> clicking web element
         retrievePasswordButton.click();
-
-        //look for current element
+        //save url after clicking button
         String actualUrl = driver.getCurrentUrl();
 
-        //verify that url did not change
+        //verify that url is not change
         if(expectedUrl.equals(actualUrl)){
             System.out.println("PASS");
-        }else {
+        }else{
             System.out.println("FAIL");
+            System.out.println("expectedUrl = " + expectedUrl);
+            System.out.println("actualUrl = " + actualUrl);
         }
 
-        Thread.sleep(3000);
-    //close the browser
+        //close the browser
         driver.quit();
+
     }
 }

@@ -40,7 +40,7 @@ public class RepeatOptionsTests extends TestBase {
         CalendarEventsPage calendarEventsPage = new CalendarEventsPage();
         //if you getting error
         calendarEventsPage.waitUntilLoaderScreenDisappear();
-        BrowserUtils.waitFor(4);
+        BrowserUtils.waitFor(2);
         calendarEventsPage.createCalendarEvent.click();
         //Click on repeat
         CreateCalendarEventsPage createCalendarEventsPage = new CreateCalendarEventsPage();

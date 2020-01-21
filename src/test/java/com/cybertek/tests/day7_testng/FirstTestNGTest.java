@@ -11,11 +11,8 @@ public class FirstTestNGTest {
 
     @Test
     public void test2(){
-
-        System.out.println("My second TestNG Test");
+        System.out.println("My second TestNG test");
     }
-
-
 
 
 }

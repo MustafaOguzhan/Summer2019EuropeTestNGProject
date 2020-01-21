@@ -28,5 +28,6 @@ public class NegativeLoginTests extends TestBase {
         loginPage.loginBtn.click();
 
         Assert.assertEquals(driver.getCurrentUrl(),"https://qa3.vytrack.com/user/login");
+
     }
 }
