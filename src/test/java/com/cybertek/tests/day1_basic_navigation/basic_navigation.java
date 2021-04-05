@@ -4,12 +4,45 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
 
+@Test
 public class basic_navigation {
 
-    public static void main(String[] args) {
+    int solution(int[] A, int X) {
+        
+        int N = A.length;
+        if (N == 0) {
+            return -1;
+        }
+        int l = 0;
+        int r = N - 1;
+        while (l < r) {
+            int m = (l + r) / 2;
+            if (A[m] > X) {
+                r = m - 1;
+            } else {
 
-        //we have to setup webdriver based on the browser that we gonna use
+                l = m;
+            }
+        }
+        if (A[l] == X) {
+            return l;
+        }
+        return -1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+        /*we have to setup webdriver based on the browser that we gonna use
         WebDriverManager.chromedriver().setup();
 
         //creating object for using selenium driver
@@ -19,7 +52,7 @@ public class basic_navigation {
         driver.get("http://amazon.com");
 
         // get the title and print it
-        System.out.println(driver.getTitle());
+        System.out.println(driver.getTitle());*/
 
     }
-}
+
